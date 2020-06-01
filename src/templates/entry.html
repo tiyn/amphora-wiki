@@ -1,0 +1,10 @@
+{% extends "template.html" %}
+{% block content %}
+<div class="container">
+    <div class="content">
+        {% autoescape off %}
+	<span>{{ content }}</span>
+        {% endautoescape %}
+    </div>
+</div>
+{% endblock %}

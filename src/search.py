@@ -1,0 +1,55 @@
+import config
+
+import os
+import sys
+
+from whoosh import scoring
+from whoosh.index import create_in, open_dir
+from whoosh.fields import Schema, TEXT, ID
+from whoosh.qparser import QueryParser
+
+INDEX_DIR = "indexdir"
+DEF_TOPN = 10
+ENTRY_DIR = config.ENTRY_DIR
+
+
+def createSearchableData(root):
+    '''
+    Schema definition: title(name of file), path(as ID), content(indexed but not stored), textdata (stored text content)
+    source:
+    https://appliedmachinelearning.blog/2018/07/31/developing-a-fast-indexing-and-full-text-search-engine-with-whoosh-a-pure-pythhon-library/
+    '''
+    schema = Schema(title=TEXT(stored=True),
+                    path=ID(stored=True), content=TEXT)
+    if not os.path.exists(INDEX_DIR):
+        os.mkdir(INDEX_DIR)
+    ix = create_in(INDEX_DIR, schema)
+    writer = ix.writer()
+    for r, d, f in os.walk(root):
+        for file in f:
+            path = os.path.join(r, file)
+            fp = open(path)
+            title = fp.readline()
+            text = title + fp.read()
+            writer.add_document(title=title, path=path, content=text)
+            fp.close()
+    writer.commit()
+
+
+def search_times(query_str, topN):
+    ix = open_dir(INDEX_DIR)
+    results = []
+    with ix.searcher(weighting=scoring.BM25F) as s:
+        query = QueryParser("content", ix.schema).parse(query_str)
+        matches = s.search(query, limit=topN)
+        for match in matches:
+            results.append(
+                {'title': match['title'], 'path': match['path'], 'match': match.score})
+    return results
+
+
+def search(query_str):
+    return search_times(query_str, DEF_TOPN)
+
+
+createSearchableData(ENTRY_DIR)

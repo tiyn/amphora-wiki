@@ -1,6 +1,6 @@
-Test Entry Title 2
+Test Entry Title 4
 This is a markdown file
-Two Two
+[link to entry3](../test-entry3.md)
 
 - list entry
 - list entry

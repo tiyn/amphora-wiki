@@ -7,16 +7,22 @@ I however just want to put my markdown files in a directory and get a working wi
 
 ## Features/To-Dos
 
-- [ ] Plain text support for blog entries
-    - [ ] Markdown Files (.md)
-- [ ] Entry page
+- [x] Plain text support for blog entries
+    - [x] Markdown Files (.md)
+- [x] Entry page
+    - [ ] Option to get plain text file
+- [x] Search page
+    - [x] Full-text search
+    - [ ] Show first few lines of each match (description)
 - [ ] Navigation
-    - [ ] Header
-    - [ ] Footer
-- [ ] Switchable CSS
-    - [ ] CSS dark-theme
-    - [ ] CSS light-theme
-- [ ] Config file
+    - [ ] More advanced namespaces
+    - [x] Header
+        - [ ] Search bar in header
+    - [x] Footer
+- [x] Switchable CSS
+    - [x] CSS dark-theme
+    - [x] CSS light-theme
+- [x] Config file
 - [ ] Docker installation
     - [ ] Enable variables/environment variables
 - [ ] Logo
