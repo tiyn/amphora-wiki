@@ -7,7 +7,7 @@ I however just want to put my markdown files in a directory and get a working wi
 
 ## Features/To-Dos
 
-- [x] Plain text support for blog entries
+- [x] Plain text support for wiki entries
     - [x] Markdown Files (.md)
 - [x] Entry page
     - [ ] Option to get plain text file
@@ -38,12 +38,12 @@ The first line of each document is reserved as the title of the document.
 
 ### PIP/Python
 
-- `git clone https://github.com/tiyn/tiyny-blog`
-- `cd flaskblog/src`
+- `git clone https://github.com/tiyn/tiyny-wiki`
+- `cd tiyny-wiki/src`
 - edit the `config.py` file according to your needs
 - `pip3install -r requirements.txt` - install depenencies
 - run `python app.py`
-- blog is available on port 5000
+- wiki is available on port 5000
 
 ### Docker
 
@@ -56,10 +56,10 @@ Set the following volumes with the -v tag.
 
 | Volume-Name | Container mount           | Description                                                  |
 |-------------|---------------------------|--------------------------------------------------------------|
-| config-file | /blog/src/config.py       | Config file                                                  |
-| entries     | /blog/src/templates/entry | Directory for blog entries                                   |
-| css         | /blog/src/static/css      | (optional) Directory for css files                           |
-| html        | /blog/src/templates       | (optional) Directory for templates (entry-volume not needed) |
+| config-file | /wiki/src/config.py       | Config file                                                  |
+| entries     | /wiki/src/templates/entry | Directory for wiki entries                                   |
+| css         | /wiki/src/static/css      | (optional) Directory for css files                           |
+| html        | /wiki/src/templates       | (optional) Directory for templates (entry-volume not needed) |
 
 #### Ports
 
