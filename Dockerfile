@@ -4,15 +4,15 @@ MAINTAINER Tiyn tiyn@martenkante.eu
 
 RUN apt-get update
 
-RUN apt-get install python3 python3-pip git -y
+RUN apt-get install python3 python3-pip -y
 
-RUN git clone https://github.com/tiyn/tiyny-wiki /wiki
+COPY src /wiki
 
-WORKDIR /wiki/src
+WORKDIR /wiki
 
 RUN pip3 install -r requirements.txt
 
-VOLUME /wiki/src/templates/entry
+VOLUME /wiki/templates/entry
 
 EXPOSE 5000
 

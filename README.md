@@ -11,12 +11,16 @@ I however just want to put my markdown files in a directory and get a working wi
     - [x] Markdown Files (.md)
 - [x] Entry page
     - [ ] Option to get plain text file
+    - [ ] Optimize CSS for code
+- [x] Start page
 - [x] Search page
     - [x] Full-text search
-    - [ ] Show first few lines of each match (description)
+    - [x] Show first few lines of each match (preview)
+    - [ ] Better CSS
 - [ ] Navigation
     - [ ] More advanced namespaces
     - [x] Header
+        - [ ] Random article
         - [ ] Search bar in header
     - [x] Footer
 - [x] Switchable CSS

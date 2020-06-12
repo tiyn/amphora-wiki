@@ -7,9 +7,11 @@
             {{ form.query_str }}
             {{ form.submit }}
         </form>
-        {% autoescape off %}
-	<span>{{ content }}</span>
-        {% endautoescape %}
+        <div class="content">
+            {% autoescape off %}
+	    <span>{{ content }}</span>
+            {% endautoescape %}
+        </div>
     </div>
 </div>
 {% endblock %}

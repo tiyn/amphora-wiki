@@ -29,6 +29,16 @@ html {
     overflow-x: hidden;
 }
 
+code {
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    page-break-inside: avoid;
+    font-family: monospace;
+    white-space: pre;
+    display: inline-block
+}
+
 footer {
     height: 100px;
     padding-top: 20px;
@@ -36,6 +46,10 @@ footer {
 
 footer .center {
     text-align: center;
+}
+
+ul {
+    padding-left: 10px;
 }
 
 .container {

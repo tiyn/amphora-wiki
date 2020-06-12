@@ -15,19 +15,19 @@ WEBSITE = config.WEBSITE
 
 def gen_stand_string(path_ex):
     filename = os.path.join(ENTRY_DIR, path_ex)
-    content_string = ''
+    result = ''
     if path.exists(filename):
         title = open(filename).readline().rstrip('\n')
         text = open(filename).readlines()[1:]
         filename_no_end = filename.split('.', 1)[0]
-        content_string += '<h1>' + title + '</h1>\n'
+        result += '<h1>' + title + '</h1>\n'
         if filename.endswith('.md'):
-            content_string += gen_md_content(filename, 1)
-    return content_string
+            result += gen_md_content(filename, 1)
+    return result
 
 
 def gen_md_content(path_ex, depth):
-    content_string = ''
+    result = ''
     if path.exists(path_ex):
         filename = path_ex.split('.', 1)
         fileend = filename[len(filename) - 1]
@@ -35,14 +35,13 @@ def gen_md_content(path_ex, depth):
         for i in range(depth):
             header += '#'
         header += ' '
-        markdown_lines = open(path_ex, "r").readlines()[1:]
+        markdown_lines = open(path_ex, 'r').readlines()[1:]
         markdown_text = ''
         for line in markdown_lines:
             markdown_text += line.replace('# ', header)
-        content_string = markdown.markdown(
-            markdown_text, extensions=["fenced_code", "tables"]
-        )
-    return content_string
+        result = markdown.markdown(
+            markdown_text, extensions=["fenced_code", "tables", "nl2br"])
+    return result
 
 
 def gen_query_res_string(query_str):
@@ -52,7 +51,25 @@ def gen_query_res_string(query_str):
     for result in src_results:
         title = result['title']
         path = result['path']
+        preview = create_preview(path)
         path = '/entry/' + path.split('/', 2)[2]
-        res_string += '<li><a href="' + path + '">' + title + '</a></li>'
+        res_string += '<li><a href="' + path + '">' + title + '</a><br>'
+        res_string += '<div class="description">' + preview + '</div>'
+        res_string += '</li>'
     res_string += '</ul>\n'
     return res_string
+
+
+def create_preview(path):
+    file = open(path, 'r')
+    first_lines = file.readlines()
+    preview = ''
+    preview_length = 3
+    for i, line in enumerate(first_lines):
+        if i > preview_length:
+            break
+        if not line.isspace():
+            preview += line + '<br>'
+        else:
+            preview_length += 1
+    return preview

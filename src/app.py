@@ -1,7 +1,7 @@
 import os
 from flask import Flask, flash, make_response, render_template, request, redirect, abort
 
-import content as con_gen
+import content as cont
 import config
 import search as src
 from forms import SearchForm, csrf
@@ -24,22 +24,23 @@ def page_not_found(e):
 @app.route('/')
 @app.route('/index.html')
 def index():
-    return 'placeholder for index', 200
+    return render_template('index.html', title=TITLE, style=STYLE), 200
 
 
 @app.route('/search', methods=['GET', 'POST'])
+@app.route('/search.html', methods=['GET', 'POST'])
 def search():
     form = SearchForm()
     if request.method == 'POST':
         query_str = request.form['query_str']
-        content = con_gen.gen_query_res_string(query_str)
+        content = cont.gen_query_res_string(query_str)
         return render_template('search.html', title=TITLE, style=STYLE, form=form, content=content), 200
     return render_template('search.html', title=TITLE, style=STYLE, form=form, content=''), 200
 
 
 @app.route('/entry/<path:fullurl>')
 def entry(fullurl):
-    content = con_gen.gen_stand_string(fullurl)
+    content = cont.gen_stand_string(fullurl)
     return render_template('entry.html', title=TITLE, style=STYLE, content=content), 200
 
 

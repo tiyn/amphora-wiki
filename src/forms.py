@@ -8,4 +8,4 @@ csrf = CSRFProtect()
 class SearchForm(FlaskForm):
     query_str = TextField(
         "Query", [validators.Required("Please enter the search term")])
-    submit = SubmitField("Send")
+    submit = SubmitField("Search")
