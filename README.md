@@ -13,6 +13,7 @@ I however just want to put my markdown files in a directory and get a working wi
     - [ ] Option to get plain text file
     - [ ] Optimize CSS for code
 - [x] Start page
+    - [ ] Overview of pages and namespaces
 - [x] Search page
     - [x] Full-text search
     - [x] Show first few lines of each match (preview)
@@ -27,7 +28,7 @@ I however just want to put my markdown files in a directory and get a working wi
     - [x] CSS dark-theme
     - [x] CSS light-theme
 - [x] Config file
-- [ ] Docker installation
+- [x] Docker installation
     - [ ] Enable variables/environment variables
 - [ ] Logo
 

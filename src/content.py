@@ -17,8 +17,8 @@ def gen_stand_string(path_ex):
     filename = os.path.join(ENTRY_DIR, path_ex)
     result = ''
     if path.exists(filename):
-        title = open(filename).readline().rstrip('\n')
-        text = open(filename).readlines()[1:]
+        title = open(filename,encoding='utf-8').readline().rstrip('\n')
+        text = open(filename,encoding='utf-8').readlines()[1:]
         filename_no_end = filename.split('.', 1)[0]
         result += '<h1>' + title + '</h1>\n'
         if filename.endswith('.md'):
@@ -35,7 +35,7 @@ def gen_md_content(path_ex, depth):
         for i in range(depth):
             header += '#'
         header += ' '
-        markdown_lines = open(path_ex, 'r').readlines()[1:]
+        markdown_lines = open(path_ex, 'r',encoding='utf-8').readlines()[1:]
         markdown_text = ''
         for line in markdown_lines:
             markdown_text += line.replace('# ', header)
@@ -61,7 +61,7 @@ def gen_query_res_string(query_str):
 
 
 def create_preview(path):
-    file = open(path, 'r')
+    file = open(path, 'r',encoding='utf-8')
     first_lines = file.readlines()
     preview = ''
     preview_length = 3

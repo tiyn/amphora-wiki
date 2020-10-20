@@ -28,7 +28,7 @@ def createSearchableData(root):
     for r, d, f in os.walk(root):
         for file in f:
             path = os.path.join(r, file)
-            fp = open(path)
+            fp = open(path,encoding='utf-8')
             title = fp.readline()
             text = title + fp.read()
             writer.add_document(title=title, path=path, content=text)
