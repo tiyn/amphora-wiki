@@ -43,6 +43,13 @@ def entry(fullurl):
     content = cont.gen_stand_string(fullurl)
     return render_template('entry.html', title=TITLE, style=STYLE, content=content), 200
 
+@app.route('/namespace/', defaults={'fullurl': ''})
+@app.route('/namespace/<path:fullurl>')
+def namespace(fullurl=''):
+    content = cont.gen_arch_string(fullurl)
+    if content == None:
+        return render_template('error.html', title=TITLE, errorcode='404', style=STYLE), 404
+    return render_template('entry.html', title=TITLE, style=STYLE, content=content), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

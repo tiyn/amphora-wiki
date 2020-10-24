@@ -18,8 +18,8 @@ I however just want to put my markdown files in a directory and get a working wi
     - [x] Full-text search
     - [x] Show first few lines of each match (preview)
     - [ ] Better CSS
-- [ ] Navigation
-    - [ ] More advanced namespaces
+- [x] Navigation
+    - [x] More advanced namespaces
     - [x] Header
         - [ ] Random article
         - [ ] Search bar in header
