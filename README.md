@@ -76,4 +76,4 @@ Set the following ports with the -p tag.
 
 #### Example run-command
 
-`docker run --name wiki --restart unless-stopped -v ./config.py:/wiki/src/config.py -v entries:/wiki/src/templates/entry -p 80:5000 -d tiynger/tiyny-wiki`
+`docker run --name wiki --restart unless-stopped -v <absolute-path-to>/config.py:/wiki/src/config.py -v entries:/wiki/src/templates/entry -p 80:5000 -d tiynger/tiyny-wiki`
