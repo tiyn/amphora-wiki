@@ -1,5 +1,5 @@
 # Name/title of your blog
-TITLE = 'Tiyny-Wiki'
+TITLE = 'Amphora Wiki'
 
 # URL for your website: e.g. https://domain.tld
 WEBSITE = 'localhost:5000'
