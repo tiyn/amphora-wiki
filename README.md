@@ -1,4 +1,4 @@
-# Python Flask Wiki
+# Amphora Wiki
 
 This is a simple wiki based on Pythons Flask framework.
 There is much great wiki software.
