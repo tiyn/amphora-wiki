@@ -1,5 +1,7 @@
 # Amphora Wiki
 
+![amphora-wiki-logo](amphora_wiki.png)
+
 This is a simple wiki based on Pythons Flask framework.
 There is much great wiki software.
 Most of them are using some kind of database.
@@ -8,28 +10,28 @@ I however just want to put my markdown files in a directory and get a working wi
 ## Features/To-Dos
 
 - [x] Plain text support for wiki entries
-    - [x] Markdown Files (.md)
+  - [x] Markdown Files (.md)
 - [x] Entry page
-    - [ ] Option to get plain text file
-    - [ ] Optimize CSS for code
+  - [ ] Option to get plain text file
+  - [ ] Optimize CSS for code
 - [x] Start page
-    - [ ] Overview of pages and namespaces
+  - [ ] Overview of pages and namespaces
 - [x] Search page
-    - [x] Full-text search
-    - [x] Show first few lines of each match (preview)
-    - [ ] Better CSS
+  - [x] Full-text search
+  - [x] Show first few lines of each match (preview)
+  - [ ] Better CSS
 - [x] Navigation
-    - [x] More advanced namespaces
-    - [x] Header
-        - [ ] Random article
-        - [ ] Search bar in header
-    - [x] Footer
+  - [x] More advanced namespaces
+  - [x] Header
+    - [ ] Random article
+    - [ ] Search bar in header
+  - [x] Footer
 - [x] Switchable CSS
-    - [x] CSS dark-theme
-    - [x] CSS light-theme
+  - [x] CSS dark-theme
+  - [x] CSS light-theme
 - [x] Config file
 - [x] Docker installation
-    - [ ] Enable variables/environment variables
+  - [ ] Enable variables/environment variables
 - [ ] Logo
 
 ## Usage
@@ -60,7 +62,7 @@ The `config.py` can be found in the `src` folder.
 Set the following volumes with the -v tag.
 
 | Volume-Name | Container mount           | Description                                                  |
-|-------------|---------------------------|--------------------------------------------------------------|
+| ----------- | ------------------------- | ------------------------------------------------------------ |
 | config-file | /wiki/src/config.py       | Config file                                                  |
 | entries     | /wiki/src/templates/entry | Directory for wiki entries                                   |
 | css         | /wiki/src/static/css      | (optional) Directory for css files                           |
@@ -71,7 +73,7 @@ Set the following volumes with the -v tag.
 Set the following ports with the -p tag.
 
 | Container-Port | Recommended outside port | Protocol | Description |
-|----------------|--------------------------|----------|-------------|
+| -------------- | ------------------------ | -------- | ----------- |
 | 5000           | 80                       | TCP      | HTTP port   |
 
 #### Example run-command
