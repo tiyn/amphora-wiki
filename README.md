@@ -23,16 +23,15 @@ I however just want to put my markdown files in a directory and get a working wi
 - [x] Navigation
   - [x] More advanced namespaces
   - [x] Header
-    - [ ] Random article
-    - [ ] Search bar in header
+  - [ ] Random article
+  - [ ] Search bar in header
   - [x] Footer
 - [x] Switchable CSS
   - [x] CSS dark-theme
   - [x] CSS light-theme
 - [x] Config file
 - [x] Docker installation
-  - [ ] Enable variables/environment variables
-- [ ] Logo
+- [x] Logo
 
 ## Usage
 
@@ -45,8 +44,8 @@ The first line of each document is reserved as the title of the document.
 
 ### PIP/Python
 
-- `git clone https://github.com/tiyn/tiyny-wiki`
-- `cd tiyny-wiki/src`
+- `git clone https://github.com/tiyn/amphora-wiki`
+- `cd amphora-wiki/src`
 - edit the `config.py` file according to your needs
 - `pip3install -r requirements.txt` - install depenencies
 - run `python app.py`
@@ -77,5 +76,8 @@ Set the following ports with the -p tag.
 | 5000           | 80                       | TCP      | HTTP port   |
 
 #### Example run-command
+
+Either use the docker image `tiynger/amphora-wiki` or run `docker build . -t amphora-wiki` in the top directory of this repository.
+If so you need to change the command below apropiately (`tiynger/amphora-wiki` to `amphora-wiki`).
 
 `docker run --name wiki --restart unless-stopped -v <absolute-path-to>/config.py:/wiki/src/config.py -v entries:/wiki/src/templates/entry -p 80:5000 -d tiynger/tiyny-wiki`
