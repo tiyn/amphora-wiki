@@ -80,4 +80,4 @@ Set the following ports with the -p tag.
 Either use the docker image `tiynger/amphora-wiki` or run `docker build . -t amphora-wiki` in the top directory of this repository.
 If so you need to change the command below apropiately (`tiynger/amphora-wiki` to `amphora-wiki`).
 
-`docker run --name wiki --restart unless-stopped -v <absolute-path-to>/config.py:/wiki/src/config.py -v entries:/wiki/src/templates/entry -p 80:5000 -d tiynger/tiyny-wiki`
+`docker run --name wiki --restart unless-stopped -v <absolute-path-to>/config.py:/wiki/src/config.py -v entries:/wiki/src/templates/entry -p 80:5000 -d tiynger/amphora-wiki`
