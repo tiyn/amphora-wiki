@@ -1,6 +1,6 @@
 # Amphora Wiki
 
-![amphora-wiki-logo](amphora_wiki.png)
+![amphora-wiki-logo](amphora_wiki_alt.png)
 
 This is a simple wiki based on Pythons Flask framework.
 There is much great wiki software.
