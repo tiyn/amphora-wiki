@@ -1,10 +1,6 @@
-FROM ubuntu
+FROM python:3
 
-MAINTAINER Tiyn tiyn@martenkante.eu
-
-RUN apt-get update
-
-RUN apt-get install python3 python3-pip -y
+MAINTAINER tiyn tiyn@mail-mk.eu
 
 COPY src /wiki
 
