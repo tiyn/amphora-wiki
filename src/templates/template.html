@@ -13,9 +13,9 @@
         <input type="checkbox" id="main-menu-check">
         <label for="main-menu-check" class="show-menu">&#9776;</label>
         <div class="main-menu">
-            <a href="/">Startpage</a>
-            <a href="/namespace">Namespaces</a>
-            <a href="/search">Search</a>
+            <a href="{{ url_for('index') }}">Startpage</a>
+            <a href="{{ url_for('namespace') }}">Namespaces</a>
+            <a href="{{ url_for('search') }}">Search</a>
             <label for="main-menu-check" class="hide-menu">X</label>
         </div>
     </div>
@@ -26,7 +26,7 @@
     <!-- Content -->
     <footer>
         <div class="center">
-            Made with <a href="https://github.com/tiyn/tiyny-wiki">Amphora Wiki</a>.
+            Made with <a href="https://github.com/tiyn/amphora-wiki">Amphora Wiki</a>.
         </div>
     </footer>
 </body>

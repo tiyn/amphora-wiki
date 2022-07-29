@@ -29,7 +29,7 @@ def createSearchableData(root):
     for r, d, f in os.walk(root):
         for file in f:
             path = os.path.join(r, file)
-            fp = open(path,encoding='utf-8')
+            fp = open(path,encoding="utf-8")
             title = fp.readline()
             text = title + fp.read()
             writer.add_document(title=title, path=path, content=text)
@@ -55,7 +55,7 @@ def search_times(query_str, topN):
         matches = s.search(query, limit=topN)
         for match in matches:
             results.append(
-                {'title': match['title'], 'path': match['path'], 'match': match.score})
+                {"title": match["title"], "path": match["path"], "match": match.score})
     return results
 
 

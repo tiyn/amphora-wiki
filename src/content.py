@@ -26,13 +26,13 @@ def gen_stand_string(path_ex):
     string: html-formatted string string equivalent to the file
     """
     filename = os.path.join(ENTRY_DIR, path_ex)
-    result = ''
+    result = ""
     if path.exists(filename):
-        title = open(filename,encoding='utf-8').readline().rstrip('\n').lstrip('#').lstrip(' ')
-        text = open(filename,encoding='utf-8').readlines()[1:]
-        filename_no_end = filename.split('.', 1)[0]
-        result += '<h1>' + title + '</h1>\n'
-        if filename.endswith('.md'):
+        title = open(filename,encoding="utf-8").readline().rstrip("\n").lstrip("#").lstrip(" ")
+        text = open(filename,encoding="utf-8").readlines()[1:]
+        filename_no_end = filename.split(".", 1)[0]
+        result += "<h1>" + title + "</h1>\n"
+        if filename.endswith(".md"):
             result += gen_md_content(filename, 1)
     return result
 
@@ -48,18 +48,18 @@ def gen_md_content(path_ex, depth):
     Returns:
     string: html-formatted string string equivalent to the markdown file
     """
-    result = ''
+    result = ""
     if path.exists(path_ex):
-        filename = path_ex.split('.', 1)
+        filename = path_ex.split(".", 1)
         fileend = filename[len(filename) - 1]
-        header = '#'
+        header = "#"
         for i in range(depth):
-            header += '#'
-        header += ' '
-        markdown_lines = open(path_ex, 'r',encoding='utf-8').readlines()[1:]
-        markdown_text = ''
+            header += "#"
+        header += " "
+        markdown_lines = open(path_ex, "r",encoding="utf-8").readlines()[1:]
+        markdown_text = ""
         for line in markdown_lines:
-            markdown_text += line.replace('# ', header)
+            markdown_text += line.replace("# ", header)
         result = markdown.markdown(
             markdown_text, extensions=["fenced_code", "tables", "nl2br"])
     return result
@@ -80,28 +80,28 @@ def gen_arch_string(path_ex):
         name_list = os.listdir(full_path)
         full_list = [os.path.join(full_path, i) for i in name_list]
         contents = sorted(full_list, key=os.path.getctime)
-        content_string = ''
-        last_month = ''
+        content_string = ""
+        last_month = ""
         for file in reversed(contents):
             filename = pathlib.PurePath(file)
             if os.path.isfile(filename):
-                title = open(filename).readline().rstrip('\n').lstrip('#').lstrip(' ')
-                entry_or_namespace = 'entry'
+                title = open(filename).readline().rstrip("\n").lstrip("#").lstrip(" ")
+                entry_or_namespace = "entry"
             elif os.path.isdir(filename):
                 title = filename.name
-                entry_or_namespace = 'namespace'
+                entry_or_namespace = "namespace"
             else:
                 continue
             filename = filename.name
-            if filename[0] != '.' and filename.__contains__('.'):
-                filename = filename.split('.', 1)[0]
-            content_string += '<li>'
-            content_string += title + ' ['
-            content_string += '<a href="' + '/'+ entry_or_namespace +'/' + \
-                path_ex.rstrip("/") + '/' +  pathlib.PurePath(file).name + '">' + 'standalone' + '</a>'
-            content_string += '] <br>'
-            content_string += '</li>\n'
-        content_string += '</ul>\n'
+            if filename[0] != "." and filename.__contains__("."):
+                filename = filename.split(".", 1)[0]
+            content_string += "<li>"
+            content_string += title + " ["
+            content_string += "<a href=\"" + "/"+ entry_or_namespace +"/" + \
+                path_ex.rstrip("/") + "/" +  pathlib.PurePath(file).name + "\">" + "standalone" + "</a>"
+            content_string += "] <br>"
+            content_string += "</li>\n"
+        content_string += "</ul>\n"
         return content_string
 
 
@@ -117,17 +117,17 @@ def gen_query_res_string(query_str):
     string: html-formated search result
     """
     src_results = search.search(query_str)
-    res_string = ''
-    res_string += '<ul>\n'
+    res_string = ""
+    res_string += "<ul>\n"
     for result in src_results:
-        title = result['title']
-        path = result['path']
+        title = result["title"]
+        path = result["path"]
         preview = create_preview(path)
-        path = '/entry/' + path.split('/', 2)[2]
-        res_string += '<li><a href="' + path + '">' + markdown.markdown(title) + '</a><br>'
-        res_string += '<div class="description">' + preview + '</div>'
-        res_string += '</li>'
-    res_string += '</ul>\n'
+        path = "/entry/" + path.split("/", 2)[2]
+        res_string += "<li><a href=\"" + path + "\">" + markdown.markdown(title) + "</a><br>"
+        res_string += "<div class=\"description\">" + preview + "</div>"
+        res_string += "</li>"
+    res_string += "</ul>\n"
     return res_string
 
 
@@ -141,9 +141,9 @@ def create_preview(path):
     Returns:
     string: html-formated preview
     """
-    file = open(path, 'r',encoding='utf-8')
+    file = open(path, "r",encoding="utf-8")
     first_lines = file.readlines()
-    preview = ''
+    preview = ""
     preview_length = 3
     for i, line in enumerate(first_lines):
         if i == 0:
@@ -151,10 +151,10 @@ def create_preview(path):
         if i > preview_length:
             break
         if not line.isspace():
-            preview += markdown.markdown(line) + '<br>'
+            preview += markdown.markdown(line) + "<br>"
         else:
             preview_length += 1
-    preview += '...<br>'
+    preview += "...<br>"
     return preview
 
-print(gen_arch_string('system-software'))
+print(gen_arch_string("system-software"))
