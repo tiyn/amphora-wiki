@@ -62,10 +62,10 @@ Set the following volumes with the -v tag.
 
 | Volume-Name | Container mount           | Description                                                  |
 | ----------- | ------------------------- | ------------------------------------------------------------ |
-| config-file | /wiki/src/config.py       | Config file                                                  |
-| entries     | /wiki/src/templates/entry | Directory for wiki entries                                   |
-| css         | /wiki/src/static/css      | (optional) Directory for css files                           |
-| html        | /wiki/src/templates       | (optional) Directory for templates (entry-volume not needed) |
+| config-file | /wiki/config.py       | Config file                                                  |
+| entries     | /wiki/templates/entry | Directory for wiki entries                                   |
+| css         | /wiki/static/css      | (optional) Directory for css files                           |
+| html        | /wiki/templates       | (optional) Directory for templates (entry-volume not needed) |
 
 #### Ports
 
