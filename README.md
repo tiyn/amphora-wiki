@@ -60,12 +60,13 @@ The `config.py` can be found in the `src` folder.
 
 Set the following volumes with the -v tag.
 
-| Volume-Name | Container mount           | Description                                                  |
-| ----------- | ------------------------- | ------------------------------------------------------------ |
-| config-file | /wiki/config.py       | Config file                                                  |
-| entries     | /wiki/templates/entry | Directory for wiki entries                                   |
-| css         | /wiki/static/css      | (optional) Directory for css files                           |
-| html        | /wiki/templates       | (optional) Directory for templates (entry-volume not needed) |
+| Volume-Name   | Container mount         | Description                                                  |
+| ------------- | ----------------------- | ------------------------------------------------------------ |
+| `config-file` | `/wiki/config.py`       | Config file                                                  |
+| `entries`     | `/wiki/templates/entry` | Directory for wiki entries                                   |
+| `graphics`    | `/wiki/static/graphics` | Directory for images needed for entries                      |
+| `css`         | `/wiki/static/css`      | (optional) Directory for css files                           |
+| `html`        | `/wiki/templates`       | (optional) Directory for templates (entry-volume not needed) |
 
 #### Ports
 

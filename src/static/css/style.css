@@ -165,3 +165,7 @@ ul {
         right: 0;
     }
 }
+
+figure {
+    padding:20px;
+}

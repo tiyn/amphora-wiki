@@ -10,6 +10,8 @@ RUN pip3 install -r requirements.txt
 
 VOLUME /wiki/templates/entry
 
+VOLUME /wiki/static/graphics
+
 EXPOSE 5000
 
 ENTRYPOINT [ "python3" ]

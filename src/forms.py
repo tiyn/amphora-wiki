@@ -1,11 +1,9 @@
-from flask_wtf import FlaskForm
-from flask_wtf import CSRFProtect
-from wtforms import TextField, SubmitField, ValidationError, validators
+from flask_wtf import CSRFProtect, FlaskForm
+from wtforms import StringField, SubmitField, ValidationError, validators
 
 csrf = CSRFProtect()
 
 
 class SearchForm(FlaskForm):
-    query_str = TextField(
-        "Query", [validators.Required("Please enter the search term")])
-    submit = SubmitField("Search")
+  query_str = StringField("Query", [validators.DataRequired("Please enter the search term")])
+  submit = SubmitField("Search")
