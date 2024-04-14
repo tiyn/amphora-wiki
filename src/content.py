@@ -96,10 +96,9 @@ def gen_arch_string(path_ex):
             if filename[0] != "." and filename.__contains__("."):
                 filename = filename.split(".", 1)[0]
             content_string += "<li>"
-            content_string += title + " ["
             content_string += "<a href=\"" + "/"+ entry_or_namespace +"/" + \
-                path_ex.rstrip("/") + "/" +  pathlib.PurePath(file).name + "\">" + "standalone" + "</a>"
-            content_string += "] <br>"
+                path_ex.rstrip("/") + "/" +  pathlib.PurePath(file).name + "\">" + title + "</a>"
+            content_string += "<br>"
             content_string += "</li>\n"
         content_string += "</ul>\n"
         return content_string
